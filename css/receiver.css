@@ -1,0 +1,9 @@
+body {
+  --playback-logo-image: url('https://img1.yeggi.com/images_q/1421924/martin-garrix-keychain-by-gotbluemilk');
+}
+cast-media-player {
+  --theme-hue: 100;
+  --progress-color: rgb(0, 255, 0);
+  --splash-image: url('https://storage.googleapis.com/proudcity/ryebrookny/uploads/2019/08/clean-drop-of-water-liquid-40784.jpg');
+  --splash-size: cover;
+}
