@@ -24,8 +24,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     // image transparent.
 
     // Set the team scores.
-    document.getElementById("team-one-score").innerHTML = teamOneScore;
-    document.getElementById("team-two-score").innerHTML = teamTwoScore;
+    //document.getElementById("team-one-score").innerHTML = teamOneScore;
+    //document.getElementById("team-two-score").innerHTML = teamTwoScore;
 });
 
 context.start();
