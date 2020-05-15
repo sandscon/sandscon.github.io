@@ -1,7 +1,6 @@
 const NAMESPACE = 'urn:x-cast:com.sandscon.euchre';
 
 const context = cast.framework.CastReceiverContext.getInstance();
-var castSession = context.getCurrentSession();
 
 // Chromecast device is disconnected from sender app.
 context.addEventListener(
