@@ -17,7 +17,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     console.log("Test");
     console.log(event);
     console.log(event.data);
-    console.log(event.data["team-one-score"]);
+    console.log(event.data["teamOneScore"]);
 
     // Get the substrings as separate variables.
     let trumpSuit = message[0];
