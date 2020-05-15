@@ -13,6 +13,7 @@ context.addEventListener(
 // the first team's current score, and the third substring is the second team's
 // score.
 context.addCustomMessageListener(NAMESPACE, (event) => {
+    let event2 = event;
     let message = event.data.split(';');
 
     // Get the substrings as separate variables.
