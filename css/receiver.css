@@ -8,6 +8,7 @@ cast-media-player {
   --progress-color: rgb(0, 255, 0);
   --splash-image: url("https://storage.googleapis.com/proudcity/ryebrookny/uploads/2019/08/clean-drop-of-water-liquid-40784.jpg");
   --splash-size: cover;
+  --
 }
 
 html, body {
@@ -34,7 +35,6 @@ html, body {
 h1 {
   font-family: "Open Sans";
   font-size: 6vw;
-  color: white;
 }
 
 img {
