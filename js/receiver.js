@@ -28,4 +28,6 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     document.getElementById("team-two-score").innerHTML = teamTwoScore;
 });
 
+document.getElementById("team-one-score").innerHTML = "3";
+
 context.start();
