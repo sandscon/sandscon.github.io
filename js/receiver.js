@@ -12,12 +12,11 @@ context.addEventListener(
 // where the first substring indicates the trump suit, the second substring is
 // the first team's current score, and the third substring is the second team's
 // score.
-context.addCustomMessageListener(NAMESPACE, event => {
-    console.log(event);
-    console.log(event.data);
-    
-    let event2 = event;
-    let message = event.data.split(';');
+context.addCustomMessageListener(NAMESPACE, (namespace, message) => {
+    console.log(namespace);
+    console.log(message);
+
+    message = message.split(';');
 
     // Get the substrings as separate variables.
     let trumpSuit = message[0];
