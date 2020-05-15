@@ -14,18 +14,28 @@ context.addEventListener(
 // score.
 context.addCustomMessageListener(NAMESPACE, (event) => {
 
-    console.log("Test");
-    console.log(event);
-    console.log(event.data);
-    console.log(event.data["teamOneScore"]);
+    let data = event.data;
 
     // Get the substrings as separate variables.
-    let trumpSuit = message[0];
-    let teamOneScore = message[1];
-    let teamTwoScore = message[2];
+    let trumpSuit = data["trump"];
+    let teamOneScore = data["teamOneScore"];
+    let teamTwoScore = data["teamOneScore"];
 
     // Set the picture on screen depending on the suit sent. If null, make the
     // image transparent.
+    switch(trumpSuit) {
+        case "SPADE":
+            break;
+        case "HEART":
+            break;
+        case "DIAMOND":
+            break;
+        case "CLUB":
+            break;
+        default:
+            // Make the image invisible because a trump suit has not been selected.
+            break;
+    }
 
     // Set the team scores.
     document.getElementById("team-one-score").innerHTML = teamOneScore;
