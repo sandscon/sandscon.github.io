@@ -13,12 +13,11 @@ context.addEventListener(
 // the first team's current score, and the third substring is the second team's
 // score.
 context.addCustomMessageListener(NAMESPACE, (event) => {
+
+    console.log("Test");
     console.log(event);
-
-    var message = JSON.parse(event.data);
-
-    console.log("finished parsing");
-    console.log(message);
+    console.log(event.data);
+    console.log(event.data["team-one-score"]);
 
     // Get the substrings as separate variables.
     let trumpSuit = message[0];
