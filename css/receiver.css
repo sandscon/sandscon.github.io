@@ -12,6 +12,7 @@ cast-media-player {
 
 html, body {
   height: 100%;
+  background-color: white;
 }
 
 #flex-parent {
