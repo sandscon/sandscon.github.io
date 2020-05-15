@@ -19,7 +19,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     // Get the substrings as separate variables.
     let trumpSuit = data["trump"];
     let teamOneScore = data["teamOneScore"];
-    let teamTwoScore = data["teamOneScore"];
+    let teamTwoScore = data["teamTwoScore"];
 
     // Set the picture on screen depending on the suit sent. If null, make the
     // image transparent.
