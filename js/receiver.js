@@ -12,7 +12,7 @@ context.addEventListener(
 // where the first substring indicates the trump suit, the second substring is
 // the first team's current score, and the third substring is the second team's
 // score.
-context.addCustomMessageListener(NAMESPACE, event => {
+context.addCustomMessageListener(NAMESPACE, (event) => {
     console.log(event);
 
     message = event.data.split(';');
