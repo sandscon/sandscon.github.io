@@ -15,7 +15,10 @@ context.addEventListener(
 context.addCustomMessageListener(NAMESPACE, (event) => {
     console.log(event);
 
-    message = event.data.split(';');
+    var message = JSON.parse(event.data);
+
+    console.log("finished parsing");
+    console.log(message);
 
     // Get the substrings as separate variables.
     let trumpSuit = message[0];
