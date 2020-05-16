@@ -8,7 +8,7 @@ html, body {
   background-color: white;
 }
 
-.loader {
+#loader {
   border: 10px solid #f3f3f3; /* Light gray */
   border-top: 10px solid #464646; /* Dark gray */
   border-radius: 50%;
@@ -36,18 +36,23 @@ html, body {
   align-items: center;
 }
 
-/* Add animation to "page content" */
+/* Add animation to scoreboard */
 .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
   -webkit-animation-duration: 1s;
   animation-name: animatebottom;
-  animation-duration: 1s
+  animation-duration: 2s;
 }
 
 @keyframes animatebottom { 
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0; opacity:1 }
+  from { 
+    bottom: -100px; 
+    opacity: 0;
+  } to { 
+    bottom: 0; 
+    opacity: 1;
+   }
 }
 
 .item {
