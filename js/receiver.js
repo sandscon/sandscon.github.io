@@ -14,6 +14,19 @@ const SUIT_IMAGE_ID = "suit-image";
 const TEAM_ONE_SCORE_ID = "team-one-score";
 const TEAM_TWO_SCORE_ID = "team-two-score";
 
+/**
+ * Changes the suit image based on a filepath.
+ * 
+ * @param {string} image_filepath Filepath of image.
+ */
+function changeImage(image_filepath) {
+    // Set the image opacity to 100.
+    document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
+
+    // Change the image based on the passed-in filepath.
+    document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
+}
+
 const context = cast.framework.CastReceiverContext.getInstance();
 
 // Chromecast device is disconnected from sender app.
@@ -53,7 +66,6 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             break;
         default:
             document.getElementById().style.opacity = 0;
-            break;
     }
 
     // Set the team scores.
@@ -62,16 +74,3 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
 });
 
 context.start();
-
-/**
- * Changes the suit image based on a filepath.
- * 
- * @param {string} image_filepath Filepath of image.
- */
-function changeImage(image_filepath) {
-    // Set the image opacity to 100.
-    document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
-
-    // Change the image based on the passed-in filepath.
-    document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
-}
