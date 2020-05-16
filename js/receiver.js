@@ -65,7 +65,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             changeImage(CLUB_IMAGE_FILEPATH);
             break;
         default:
-            document.getElementById().style.opacity = 0;
+            document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
     }
 
     // Set the team scores.
