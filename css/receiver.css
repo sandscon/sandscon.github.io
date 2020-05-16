@@ -3,11 +3,17 @@
   src: url('../fonts/OpenSans-Regular.ttf'); 
 } 
 
-cast-media-player {
-  --theme-hue: 100;
-  --progress-color: rgb(0, 255, 0);
-  --splash-image: url("https://storage.googleapis.com/proudcity/ryebrookny/uploads/2019/08/clean-drop-of-water-liquid-40784.jpg");
-  --splash-size: cover;
+#preloadedImages
+{
+    width: 0px;
+    height: 0px;
+    display: inline;
+    background-image: url(path/to/image1.png);
+    background-image: url(path/to/image2.png);
+    background-image: url(path/to/image3.png);
+    background-image: url(path/to/image4.png);
+    background-image: url();
+
 }
 
 html, body {
