@@ -3,19 +3,6 @@
   src: url('../fonts/OpenSans-Regular.ttf'); 
 } 
 
-#preloadedImages
-{
-    width: 0px;
-    height: 0px;
-    display: inline;
-    background-image: url(path/to/image1.png);
-    background-image: url(path/to/image2.png);
-    background-image: url(path/to/image3.png);
-    background-image: url(path/to/image4.png);
-    background-image: url();
-
-}
-
 html, body {
   height: 100%;
   background-color: white;

@@ -38,6 +38,7 @@ function showPage() {
 // When page has fully loaded, display the scoreboard.
 window.addEventListener('load', function () {
     showPage();
+    console.log("Loaded the page");
 })
 
 const context = cast.framework.CastReceiverContext.getInstance();
