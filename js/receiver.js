@@ -27,6 +27,14 @@ function changeImage(image_filepath) {
     document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
 }
 
+/**
+ * Makes the loading screen invisible and displays the euchre board.
+ */
+function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("flex-parent").style.display = "flex";
+  }
+
 const context = cast.framework.CastReceiverContext.getInstance();
 
 // Chromecast device is disconnected from sender app.
@@ -40,6 +48,9 @@ context.addEventListener(
 // the first team's current score, and the third substring is the second team's
 // score.
 context.addCustomMessageListener(NAMESPACE, (event) => {
+
+    // Transition the euchre board to be displayed.
+    showPage();
 
     // Get the data from the event.
     let data = event.data;
