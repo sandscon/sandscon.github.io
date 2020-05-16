@@ -35,6 +35,11 @@ function showPage() {
     document.getElementById("flex-parent").style.display = "flex";
   }
 
+// When page has fully loaded, display the scoreboard.
+window.addEventListener('load', function () {
+    showPage();
+})
+
 const context = cast.framework.CastReceiverContext.getInstance();
 
 // Chromecast device is disconnected from sender app.
@@ -48,10 +53,6 @@ context.addEventListener(
 // the first team's current score, and the third substring is the second team's
 // score.
 context.addCustomMessageListener(NAMESPACE, (event) => {
-
-    // Transition the euchre board to be displayed.
-    showPage();
-
     // Get the data from the event.
     let data = event.data;
 

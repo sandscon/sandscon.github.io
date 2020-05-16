@@ -41,8 +41,8 @@ html, body {
 }
 
 #flex-parent {
-  display: none;
   height: 100%;
+  display: none;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
