@@ -44,9 +44,10 @@ function transitionSuitImage(image_filepath) {
 function changeImage(image_filepath) {
     console.log(document.getElementById(SUIT_IMAGE_ID).src);
     console.log(document.getElementById(SUIT_IMAGE_ID).src == image_filepath);
+    console.log("Opacity: " + document.getElementById(SUIT_IMAGE_ID).style.opacity);
 
     // If the image was previously transparent, fade in the new image.
-    // Otherwise, transition the old image into the new image.s
+    // Otherwise, transition the old image into the new image.
     if (document.getElementById(SUIT_IMAGE_ID).style.opacity == 0) {
         fadeInSuitImage(image_filepath);
     }
@@ -108,7 +109,10 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             changeImage(BASE_URL + CLUB_IMAGE_FILEPATH);
             break;
         default:
-            fadeOutSuitImage();
+            console.log("Opacity: " + document.getElementById(SUIT_IMAGE_ID).style.opacity);
+            if (document.getElementById(SUIT_IMAGE_ID).style.opacity != 0) {
+                fadeOutSuitImage();
+            }
     }
 
     console.log(document.getElementById(TEAM_ONE_SCORE_ID).innerHTML);
