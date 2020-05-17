@@ -30,11 +30,11 @@ function changeImage(image_filepath) {
     // Change the image based on the passed-in filepath if it 
     // has changed.
     if (document.getElementById(SUIT_IMAGE_ID).src != image_filepath) {
-        $(function() {
-            $('#' + SUIT_IMAGE_ID).fadeOut(500, function() {
-                $(this).attr("src", image_filepath).fadeIn(500);
+        $('#' + SUIT_IMAGE_ID).fadeOut(300, function(){
+            $(this).attr('src',image_filepath).bind('onreadystatechange load', function() {
+               if (this.complete) $(this).fadeIn(300);
             });
-        });
+         });
     }
 }
 
