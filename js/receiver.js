@@ -11,8 +11,8 @@ const TRUMP_JSON_KEY = "trump";
 const TRUMP_TEAM_ONE_SCORE_KEY = "teamOneScore";
 const TRUMP_TEAM_TWO_SCORE_KEY = "teamTwoScore";
 const SUIT_IMAGE_ID = "suit-image";
-const TEAM_ONE_SCORE_ID = "team-one-score";
-const TEAM_TWO_SCORE_ID = "team-two-score";
+const TEAM_ONE_SCORE_ID = "#team-one-score";
+const TEAM_TWO_SCORE_ID = "#team-two-score";
 
 /**
  * Changes the suit image based on a filepath.
@@ -24,7 +24,12 @@ function changeImage(image_filepath) {
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 
     // Change the image based on the passed-in filepath.
-    document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
+    $(function() {
+        $(SUIT_IMAGE_ID).fadeOut(500, function() {
+            $(this).src('#' + image_filepath).fadeIn(500);
+        });
+    });
+    //document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
 }
 
 /**
@@ -82,8 +87,19 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     }
 
     // Set the team scores.
-    document.getElementById(TEAM_ONE_SCORE_ID).innerHTML = teamOneScore;
-    document.getElementById(TEAM_TWO_SCORE_ID).innerHTML = teamTwoScore;
+    //document.getElementById(TEAM_ONE_SCORE_ID).innerHTML = teamOneScore;
+    $(function() {
+        $(TEAM_ONE_SCORE_ID).fadeOut(500, function() {
+            $(this).text(teamOneScore).fadeIn(500);
+        });
+    });
+
+    $(function() {
+        $(TEAM_TWO_SCORE_ID).fadeOut(500, function() {
+            $(this).text(teamTwoScore).fadeIn(500);
+        });
+    });
+    //document.getElementById(TEAM_TWO_SCORE_ID).innerHTML = teamTwoScore;
 });
 
 context.start();

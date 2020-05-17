@@ -39,8 +39,6 @@ html, body {
 /* Add animation to scoreboard */
 .animate-bottom {
   position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
   animation-name: animatebottom;
   animation-duration: 2s;
 }
