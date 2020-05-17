@@ -25,6 +25,7 @@ function changeImage(image_filepath) {
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 
     console.log(document.getElementById(SUIT_IMAGE_ID).src);
+    console.log(document.getElementById(SUIT_IMAGE_ID).src == image_filepath);
 
     // Change the image based on the passed-in filepath if it 
     // has changed.
