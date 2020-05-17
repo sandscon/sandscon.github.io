@@ -14,27 +14,46 @@ const TRUMP_TEAM_TWO_SCORE_KEY = "teamTwoScore";
 const SUIT_IMAGE_ID = "suit-image";
 const TEAM_ONE_SCORE_ID = "team-one-score";
 const TEAM_TWO_SCORE_ID = "team-two-score";
+const FADE_DURATION = 300;
 
+function fadeOutSuitImage() {
+    $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION);
+}
+
+function fadeInSuitImage(image_filepath) {
+    $('#' + SUIT_IMAGE_ID).attr('src', image_filepath).bind('onreadystatechange load', 
+    function() {
+        if (this.complete) $(this).fadeIn(FADE_DURATION);
+    });
+}
+
+function transitionSuitImage(image_filepath) {
+    $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION, 
+        function() {
+            $(this).attr('src',image_filepath).bind('onreadystatechange load', 
+            function() {
+            if (this.complete) $(this).fadeIn(FADE_DURATION);
+            });
+     });
+}
 /**
  * Changes the suit image based on a filepath.
  * 
  * @param {string} image_filepath Filepath of image.
  */
 function changeImage(image_filepath) {
-    // Set the image opacity to 100.
-    document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
-
     console.log(document.getElementById(SUIT_IMAGE_ID).src);
     console.log(document.getElementById(SUIT_IMAGE_ID).src == image_filepath);
 
-    // Change the image based on the passed-in filepath if it 
-    // has changed.
-    if (document.getElementById(SUIT_IMAGE_ID).src != image_filepath) {
-        $('#' + SUIT_IMAGE_ID).fadeOut(300, function(){
-            $(this).attr('src',image_filepath).bind('onreadystatechange load', function() {
-               if (this.complete) $(this).fadeIn(300);
-            });
-         });
+    // If the image was previously transparent, fade in the new image.
+    // Otherwise, transition the old image into the new image.s
+    if (document.getElementById(SUIT_IMAGE_ID).style.opacity == 0) {
+        fadeInSuitImage(image_filepath);
+    }
+    else {
+        if (document.getElementById(SUIT_IMAGE_ID).src != image_filepath) {
+            transitionSuitImage(image_filepath);
+        }
     }
 }
 
@@ -89,7 +108,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             changeImage(BASE_URL + CLUB_IMAGE_FILEPATH);
             break;
         default:
-            document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
+            fadeOutSuitImage();
     }
 
     console.log(document.getElementById(TEAM_ONE_SCORE_ID).innerHTML);
@@ -98,8 +117,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     // Set the team scores if they have changed.
     if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
         $(function() {
-            $('#' + TEAM_ONE_SCORE_ID).fadeOut(500, function() {
-                $(this).text(teamOneScore).fadeIn(500);
+            $('#' + TEAM_ONE_SCORE_ID).fadeOut(FADE_DURATION, function() {
+                $(this).text(teamOneScore).fadeIn(FADE_DURATION);
             });
         });
     }
@@ -108,8 +127,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
 
     if (document.getElementById(TEAM_TWO_SCORE_ID).innerHTML != teamTwoScore) {
         $(function() {
-            $('#' + TEAM_TWO_SCORE_ID).fadeOut(500, function() {
-                $(this).text(teamTwoScore).fadeIn(500);
+            $('#' + TEAM_TWO_SCORE_ID).fadeOut(FADE_DURATION, function() {
+                $(this).text(teamTwoScore).fadeIn(FADE_DURATION);
             });
         });
     }
