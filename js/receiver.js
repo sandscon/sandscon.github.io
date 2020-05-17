@@ -1,12 +1,13 @@
 const NAMESPACE = 'urn:x-cast:com.sandscon.euchre';
+const BASE_URL = "https://sandscon.github.io/";
 const SPADE = "SPADE";
-const SPADE_IMAGE_FILEPATH = "../images/spade_final.png";
+const SPADE_IMAGE_FILEPATH = "images/spade_final.png";
 const HEART = "HEART";
-const HEART_IMAGE_FILEPATH = "../images/heart_final.png";
+const HEART_IMAGE_FILEPATH = "images/heart_final.png";
 const DIAMOND = "DIAMOND";
-const DIAMOND_IMAGE_FILEPATH = "../images/diamond_final.png";
+const DIAMOND_IMAGE_FILEPATH = "images/diamond_final.png";
 const CLUB = "CLUB";
-const CLUB_IMAGE_FILEPATH = "../images/club_final.png";
+const CLUB_IMAGE_FILEPATH = "images/club_final.png";
 const TRUMP_JSON_KEY = "trump";
 const TRUMP_TEAM_ONE_SCORE_KEY = "teamOneScore";
 const TRUMP_TEAM_TWO_SCORE_KEY = "teamTwoScore";
@@ -30,7 +31,7 @@ function changeImage(image_filepath) {
     if (document.getElementById(SUIT_IMAGE_ID).src != image_filepath) {
         $(function() {
             $('#' + SUIT_IMAGE_ID).fadeOut(500, function() {
-                $(this).src(image_filepath).fadeIn(500);
+                $(this).attr("src", image_filepath).fadeIn(500);
             });
         });
     }
@@ -75,22 +76,23 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     // the image transparent.
     switch(trumpSuit) {
         case SPADE:
-            changeImage(SPADE_IMAGE_FILEPATH);
+            changeImage(BASE_URL + SPADE_IMAGE_FILEPATH);
             break;
         case HEART:
-            changeImage(HEART_IMAGE_FILEPATH);
+            changeImage(BASE_URL + HEART_IMAGE_FILEPATH);
             break;
         case DIAMOND:
-            changeImage(DIAMOND_IMAGE_FILEPATH);
+            changeImage(BASE_URL + DIAMOND_IMAGE_FILEPATH);
             break;
         case CLUB:
-            changeImage(CLUB_IMAGE_FILEPATH);
+            changeImage(BASE_URL + CLUB_IMAGE_FILEPATH);
             break;
         default:
             document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
     }
 
     console.log(document.getElementById(TEAM_ONE_SCORE_ID).innerHTML);
+    console.log(document.getElementById(TEAM_ONE_SCORE_ID).innerHTML == teamOneScore);
 
     // Set the team scores if they have changed.
     if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
