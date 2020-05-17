@@ -10,7 +10,7 @@ const CLUB_IMAGE_FILEPATH = "../images/club_final.png";
 const TRUMP_JSON_KEY = "trump";
 const TRUMP_TEAM_ONE_SCORE_KEY = "teamOneScore";
 const TRUMP_TEAM_TWO_SCORE_KEY = "teamTwoScore";
-const SUIT_IMAGE_ID = "suit-image";
+const SUIT_IMAGE_ID = "#suit-image";
 const TEAM_ONE_SCORE_ID = "#team-one-score";
 const TEAM_TWO_SCORE_ID = "#team-two-score";
 
@@ -26,7 +26,7 @@ function changeImage(image_filepath) {
     // Change the image based on the passed-in filepath.
     $(function() {
         $(SUIT_IMAGE_ID).fadeOut(500, function() {
-            $(this).src('#' + image_filepath).fadeIn(500);
+            $(this).src(image_filepath).fadeIn(500);
         });
     });
     //document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
@@ -38,12 +38,11 @@ function changeImage(image_filepath) {
 function showPage() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("flex-parent").style.display = "flex";
-  }
+}
 
 // When page has fully loaded, display the scoreboard.
 window.addEventListener('load', function () {
     showPage();
-    console.log("Loaded the page");
 })
 
 const context = cast.framework.CastReceiverContext.getInstance();
@@ -52,7 +51,8 @@ const context = cast.framework.CastReceiverContext.getInstance();
 context.addEventListener(
     cast.framework.system.EventType.SENDER_DISCONNECTED, (event) => {
         window.close();
-    });
+    }
+);
 
 // Receives messages from sender app. The message is a comma separated string
 // where the first substring indicates the trump suit, the second substring is
@@ -86,20 +86,22 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
     }
 
-    // Set the team scores.
-    //document.getElementById(TEAM_ONE_SCORE_ID).innerHTML = teamOneScore;
-    $(function() {
-        $(TEAM_ONE_SCORE_ID).fadeOut(500, function() {
-            $(this).text(teamOneScore).fadeIn(500);
+    // Set the team scores if they have changed.
+    if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
+        $(function() {
+            $(TEAM_ONE_SCORE_ID).fadeOut(500, function() {
+                $(this).text(teamOneScore).fadeIn(500);
+            });
         });
-    });
+    }
 
-    $(function() {
-        $(TEAM_TWO_SCORE_ID).fadeOut(500, function() {
-            $(this).text(teamTwoScore).fadeIn(500);
+    if (document.getElementById(TEAM_TWO_SCORE_ID).innerHTML != teamTwoScore) {
+        $(function() {
+            $(TEAM_TWO_SCORE_ID).fadeOut(500, function() {
+                $(this).text(teamTwoScore).fadeIn(500);
+            });
         });
-    });
-    //document.getElementById(TEAM_TWO_SCORE_ID).innerHTML = teamTwoScore;
+    }
 });
 
 context.start();
