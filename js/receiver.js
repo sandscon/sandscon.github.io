@@ -10,9 +10,9 @@ const CLUB_IMAGE_FILEPATH = "../images/club_final.png";
 const TRUMP_JSON_KEY = "trump";
 const TRUMP_TEAM_ONE_SCORE_KEY = "teamOneScore";
 const TRUMP_TEAM_TWO_SCORE_KEY = "teamTwoScore";
-const SUIT_IMAGE_ID = "#suit-image";
-const TEAM_ONE_SCORE_ID = "#team-one-score";
-const TEAM_TWO_SCORE_ID = "#team-two-score";
+const SUIT_IMAGE_ID = "suit-image";
+const TEAM_ONE_SCORE_ID = "team-one-score";
+const TEAM_TWO_SCORE_ID = "team-two-score";
 
 /**
  * Changes the suit image based on a filepath.
@@ -27,7 +27,7 @@ function changeImage(image_filepath) {
     // has changed.
     if (document.getElementById.src != image_filepath) {
         $(function() {
-            $(SUIT_IMAGE_ID).fadeOut(500, function() {
+            $('#' + SUIT_IMAGE_ID).fadeOut(500, function() {
                 $(this).src(image_filepath).fadeIn(500);
             });
         });
@@ -91,7 +91,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     // Set the team scores if they have changed.
     if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
         $(function() {
-            $(TEAM_ONE_SCORE_ID).fadeOut(500, function() {
+            $('#' + TEAM_ONE_SCORE_ID).fadeOut(500, function() {
                 $(this).text(teamOneScore).fadeIn(500);
             });
         });
@@ -99,7 +99,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
 
     if (document.getElementById(TEAM_TWO_SCORE_ID).innerHTML != teamTwoScore) {
         $(function() {
-            $(TEAM_TWO_SCORE_ID).fadeOut(500, function() {
+            $('#' + TEAM_TWO_SCORE_ID).fadeOut(500, function() {
                 $(this).text(teamTwoScore).fadeIn(500);
             });
         });
