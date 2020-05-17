@@ -23,13 +23,15 @@ function changeImage(image_filepath) {
     // Set the image opacity to 100.
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 
-    // Change the image based on the passed-in filepath.
-    $(function() {
-        $(SUIT_IMAGE_ID).fadeOut(500, function() {
-            $(this).src(image_filepath).fadeIn(500);
+    // Change the image based on the passed-in filepath if it 
+    // has changed.
+    if (document.getElementById.src != image_filepath) {
+        $(function() {
+            $(SUIT_IMAGE_ID).fadeOut(500, function() {
+                $(this).src(image_filepath).fadeIn(500);
+            });
         });
-    });
-    //document.getElementById(SUIT_IMAGE_ID).src = image_filepath;
+    }
 }
 
 /**
