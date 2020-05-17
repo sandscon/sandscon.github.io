@@ -23,9 +23,11 @@ function changeImage(image_filepath) {
     // Set the image opacity to 100.
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 
+    console.log(document.getElementById(SUIT_IMAGE_ID).src);
+
     // Change the image based on the passed-in filepath if it 
     // has changed.
-    if (document.getElementById.src != image_filepath) {
+    if (document.getElementById(SUIT_IMAGE_ID).src != image_filepath) {
         $(function() {
             $('#' + SUIT_IMAGE_ID).fadeOut(500, function() {
                 $(this).src(image_filepath).fadeIn(500);
@@ -88,6 +90,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
     }
 
+    console.log(document.getElementById(TEAM_ONE_SCORE_ID).innerHTML);
+
     // Set the team scores if they have changed.
     if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
         $(function() {
@@ -96,6 +100,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
             });
         });
     }
+
+    console.log(document.getElementById(TEAM_TWO_SCORE_ID).innerHTML);
 
     if (document.getElementById(TEAM_TWO_SCORE_ID).innerHTML != teamTwoScore) {
         $(function() {
