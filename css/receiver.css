@@ -1,7 +1,7 @@
-@font-face { 
-  font-family: "Open Sans"; 
-  src: url('../fonts/OpenSans-Regular.ttf'); 
-} 
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Regular.ttf');
+}
 
 html, body {
   height: 100%;
@@ -19,12 +19,16 @@ html, body {
   right: 50%;
   left: 50%;
   margin-left: -25px;
-  animation: spin .4s linear infinite;
+  animation: spin 0.4s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #flex-parent {
@@ -43,25 +47,26 @@ html, body {
   animation-duration: 2s;
 }
 
-@keyframes animatebottom { 
-  from { 
-    bottom: -100px; 
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
     opacity: 0;
-  } to { 
-    bottom: 0; 
+  }
+  to {
+    bottom: 0;
     opacity: 1;
-   }
+  }
 }
 
 .item {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 33%;
-    text-align: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 33%;
+  text-align: center;
 }
 
 h1 {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 6vw;
 }
 

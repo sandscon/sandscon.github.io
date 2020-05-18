@@ -16,29 +16,43 @@ const TEAM_ONE_SCORE_ID = "team-one-score";
 const TEAM_TWO_SCORE_ID = "team-two-score";
 const FADE_DURATION = 300;
 
+/**
+ * Fades out the suit image to transparent.
+ */
 function fadeOutSuitImage() {
     $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION);
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
 }
 
+/**
+ * Fades in the suit image from transparent.
+ * 
+ * @param {string} image_filepath Filepath of image.
+ */
 function fadeInSuitImage(image_filepath) {
-    $('#' + SUIT_IMAGE_ID).attr('src', image_filepath).bind('onreadystatechange load', 
-    function() {
-        if (this.complete) $(this).fadeIn(FADE_DURATION);
-    });
+    $('#' + SUIT_IMAGE_ID).attr('src', image_filepath).bind('onreadystatechange load',
+        function () {
+            if (this.complete) $(this).fadeIn(FADE_DURATION);
+        });
 
     document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 }
 
+/**
+ * Transitions one suit image to another.
+ * 
+ * @param {string} image_filepath Filepath of image.
+ */
 function transitionSuitImage(image_filepath) {
-    $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION, 
-        function() {
-            $(this).attr('src',image_filepath).bind('onreadystatechange load', 
-            function() {
-            if (this.complete) $(this).fadeIn(FADE_DURATION);
-            });
-     });
+    $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION,
+        function () {
+            $(this).attr('src', image_filepath).bind('onreadystatechange load',
+                function () {
+                    if (this.complete) $(this).fadeIn(FADE_DURATION);
+                });
+        });
 }
+
 /**
  * Changes the suit image based on a filepath.
  * 
@@ -98,7 +112,7 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
 
     // Set the picture on screen depending on the suit sent. If undefined, make 
     // the image transparent.
-    switch(trumpSuit) {
+    switch (trumpSuit) {
         case SPADE:
             changeImage(BASE_URL + SPADE_IMAGE_FILEPATH);
             break;
@@ -123,8 +137,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
 
     // Set the team scores if they have changed.
     if (document.getElementById(TEAM_ONE_SCORE_ID).innerHTML != teamOneScore) {
-        $(function() {
-            $('#' + TEAM_ONE_SCORE_ID).fadeOut(FADE_DURATION, function() {
+        $(function () {
+            $('#' + TEAM_ONE_SCORE_ID).fadeOut(FADE_DURATION, function () {
                 $(this).text(teamOneScore).fadeIn(FADE_DURATION);
             });
         });
@@ -133,8 +147,8 @@ context.addCustomMessageListener(NAMESPACE, (event) => {
     console.log(document.getElementById(TEAM_TWO_SCORE_ID).innerHTML);
 
     if (document.getElementById(TEAM_TWO_SCORE_ID).innerHTML != teamTwoScore) {
-        $(function() {
-            $('#' + TEAM_TWO_SCORE_ID).fadeOut(FADE_DURATION, function() {
+        $(function () {
+            $('#' + TEAM_TWO_SCORE_ID).fadeOut(FADE_DURATION, function () {
                 $(this).text(teamTwoScore).fadeIn(FADE_DURATION);
             });
         });
