@@ -18,6 +18,7 @@ const FADE_DURATION = 300;
 
 function fadeOutSuitImage() {
     $('#' + SUIT_IMAGE_ID).fadeOut(FADE_DURATION);
+    document.getElementById(SUIT_IMAGE_ID).style.opacity = 0;
 }
 
 function fadeInSuitImage(image_filepath) {
@@ -25,6 +26,8 @@ function fadeInSuitImage(image_filepath) {
     function() {
         if (this.complete) $(this).fadeIn(FADE_DURATION);
     });
+
+    document.getElementById(SUIT_IMAGE_ID).style.opacity = 100;
 }
 
 function transitionSuitImage(image_filepath) {
